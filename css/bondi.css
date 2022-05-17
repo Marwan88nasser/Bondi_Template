@@ -1,0 +1,337 @@
+:root {
+  --main-color: #19283f;
+  --second-color: #33d1cc;
+  --white-color: #fff;
+  --third-color: #ff3150;
+  --fourth: #ffc400;
+  --section-color: #eff7fa;
+  --main-transition: all 0.4s;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+/* start components */
+.main-title::before {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 13%;
+  height: 2px;
+  background-color: var(--second-color);
+}
+/* end components */
+/* start some of responsive trick */
+@media (max-width: 768px) {
+  .navbar-collapse {
+    padding: 8px 5px 20px 10px;
+    border-radius: 0px 0px 10px 10px;
+    background-color: var(--main-color);
+  }
+}
+
+@media (max-width: 768px) {
+  .popup-image .image-box {
+    width: 445px !important;
+    height: 365px !important;
+  }
+}
+
+@media (max-width: 400px) {
+  .popup-image .image-box {
+    width: 320px !important;
+    height: 310px !important;
+  }
+}
+/* end some of responsive */
+/* start navbar */
+.search-overlay {
+  background-color: rgb(0 0 0 / 50%);
+  z-index: 99999;
+  top: -100%;
+  transition: var(--main-transition);
+}
+
+.search-overlay .close-search {
+  top: 5%;
+  right: 5%;
+  padding: 0px 11px;
+  font-size: 24px;
+  font-weight: bolder;
+}
+
+.search-overlay #search-input {
+  padding: 10px 15px;
+  border-radius: 30px;
+}
+
+.search-overlay #search-input:focus {
+  outline: none;
+}
+
+.navbar {
+  transition: all 0.5s linear;
+  z-index: 1111;
+}
+
+.navbar.sticky {
+  max-height: 62px;
+  background-color: var(--main-color) !important;
+}
+
+.navbar .navbar-nav .nav-link {
+  cursor: pointer;
+}
+
+.navbar .navbar-nav .nav-link.active {
+  color: var(--second-color);
+}
+
+.navbar .navbar-nav .nav-link::before,
+.navbar .navbar-nav .nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0%;
+  width: 100%;
+  height: 2px;
+  background-color: var(--white-color);
+  transition: var(--main-transition);
+  opacity: 0;
+}
+
+.navbar .navbar-nav .nav-link::before {
+  top: 12px;
+}
+
+.navbar .navbar-nav .nav-link::after {
+  bottom: 17px;
+}
+
+.navbar .navbar-nav .nav-link:hover::before {
+  top: 5px;
+  opacity: 1;
+}
+
+.navbar .navbar-nav .nav-link:hover::after {
+  bottom: 6px;
+  opacity: 1;
+}
+
+.navbar .navbar-nav .nav-link.active:hover,
+.navbar .navbar-nav .nav-link:hover {
+  color: var(--white-color);
+}
+
+.navbar .search {
+  border-left: 1px solid var(--second-color);
+}
+
+.navbar .search .search-icon {
+  color: var(--second-color);
+  transition: var(--main-transition);
+  font-size: 21px;
+  cursor: pointer;
+}
+
+.navbar .search .search-icon:hover {
+  color: var(--white-color);
+  transform: scale(1.1);
+}
+
+.main-btn {
+  width: 80px;
+}
+
+/* end navbar */
+/* start landing page */
+.landing-page {
+  background-size: cover;
+}
+
+.landing-page .overlay {
+  background: linear-gradient(#355c7d, #6c5b7b, var(--main-color));
+}
+
+.landing-page .text-content {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.landing-page .get-start {
+  width: 130px;
+}
+
+/* end landing page */
+/* start feature */
+.feature .feature-content .feat .holder-icon {
+  height: 200px;
+}
+
+.feature .feature-content .feat .holder-icon .icon-one {
+  transform: translate(-50%, -50%);
+  font-size: 12rem;
+  color: var(--section-color);
+}
+
+.feature .feature-content .feat .holder-icon .icon-two {
+  bottom: 5px;
+  transform: translateX(-50%);
+  font-size: 70px;
+  color: var(--second-color);
+}
+
+.feature .feature-content .feat > h3 {
+  color: var(--fourth);
+}
+/* end feature */
+/* start portfolio */
+.portfolio {
+  background-color: var(--section-color);
+}
+
+.portfolio .portfolio-content .box-work {
+  padding: 5px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.portfolio .portfolio-content .box-work::before {
+  content: attr(data-work);
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: calc(100% - 10px);
+  height: calc(100% - 10px);
+  background-color: rgb(51 209 204 / 75%);
+  transition: var(--main-transition);
+  color: var(--white-color);
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: -1px;
+  transform: translateX(calc(-100% - 6px));
+  visibility: visible;
+}
+
+.portfolio .portfolio-content .box-work:hover::before {
+  transform: translateX(0px);
+}
+
+.popup-image {
+  left: -200%;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  z-index: 99999;
+  transition: var(--main-transition);
+}
+
+.popup-image .close {
+  top: -14px;
+  right: -15px;
+  padding: 1px 12px;
+}
+
+.popup-image .image-box {
+  width: 500px;
+  height: 390px;
+  box-shadow: 0 0 8px #000000a6;
+}
+/* end portfolio */
+/* start team */
+.team {
+  background-color: var(--section-color);
+}
+
+.team .main-title > h2 {
+  color: var(--fourth);
+}
+
+.team .container .team-box h4 {
+  color: var(--white-color);
+  background-color: var(--second-color);
+  padding: 10px 5px;
+}
+/* end team */
+/* start project */
+.project {
+  background-color: var(--main-color);
+}
+/* end project */
+/* start blog */
+.blog-box {
+  cursor: pointer;
+  transition: var(--main-transition);
+}
+
+.blog-box:hover {
+  box-shadow: 0 0 4px #acacac;
+}
+
+.text-blog {
+  border: 1px solid #dbdada;
+}
+/* end blog */
+/* start Subscribe */
+.Subscribe {
+  background-color: var(--fourth);
+}
+
+.Subscribe .Subscribe-content input:focus {
+  outline: none;
+}
+
+.Subscribe .Subscribe-content input:focus::placeholder {
+  opacity: 0;
+  transition: var(--main-transition);
+}
+
+.Subscribe .Subscribe-content .Subscribe-btn {
+  padding: 8px 21px;
+}
+/* end Subscribe */
+/* start footer */
+footer {
+  background-color: var(--main-color);
+}
+
+footer .container .part-footer h6 .created {
+  color: var(--second-color);
+}
+
+footer .container .part-footer h6 .brand-mark {
+  color: var(--fourth);
+}
+
+footer .container .part-footer .social li a {
+  width: 40px;
+  height: 40px;
+  transition: .7s;
+}
+
+footer .container .part-footer .social li a:hover {
+  transform: rotate(1turn);
+}
+
+footer .container .part-footer .social li:first-child {
+  background-color: #1877f2;
+}
+
+footer .container .part-footer .social li:nth-child(2) {
+  background-color: #1da1f2;
+}
+footer .container .part-footer .social li:nth-child(3) {
+  background-color: #0d6efd;
+}
+footer .container .part-footer .social li:last-child {
+  background-color: #ff0000;
+}
+
+/* end footer */
